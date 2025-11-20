@@ -12,8 +12,8 @@ local config = {
     physics = {
         gravity = 0.07, --0.07 default
         airFriction = 0.02,
-        BroadphaseGridSize = 800,
-        BroadphasePasses = 3 --how many times collision is hcecked per frame (prevents soup, as 1 pass can leave stuf finside eachother after movement)
+        BroadphaseGridSize = 200, -- in pixels, anything over 400 is useless. Best in increments divisible into winsizes
+        BroadphasePasses = 1 --how many times collision is checked per frame (prevents soup, as 1 pass can leave stuf finside eachother after movement)
     }
 }
 

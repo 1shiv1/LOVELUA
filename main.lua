@@ -136,8 +136,8 @@ local function AssembleGrid()
     for _, obj in ipairs(ActiveParticles) do
         local gx, gy = obj.Grid.x, obj.Grid.y
 
-        local maxGx = math.floor((WinWidth - 1) / cfg.physics.BroadphaseGridSize)
-        local maxGy = math.floor((WinHeight - 1) / cfg.physics.BroadphaseGridSize)
+        local maxGx = math.floor((WinWidth) / cfg.physics.BroadphaseGridSize)
+        local maxGy = math.floor((WinHeight) / cfg.physics.BroadphaseGridSize)
         gx = math.max(0, math.min(gx, maxGx))
         gy = math.max(0, math.min(gy, maxGy))
 
