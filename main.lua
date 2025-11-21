@@ -26,7 +26,7 @@ function love.load()
             Vector2.new(math.random(0,WinWidth), math.random(0,WinHeight)),
             7,
             Vector2.new((math.random(0,15)-7.5),(math.random(0,15)-7.5)),
-            0.6, --default elasticity
+            0.6,
             false
         )
         table.insert(ActiveParticles, p)
@@ -62,7 +62,6 @@ local function uncollide(a,b,n)
     if overlap > 0 then
         a.Position = a.Position + n * (overlap / 2)
         b.Position = b.Position - n * (overlap / 2)
-
     end
 end
 
@@ -136,15 +135,15 @@ local function AssembleGrid()
     for _, obj in ipairs(ActiveParticles) do
         local gx, gy = obj.Grid.x, obj.Grid.y
 
-        local maxGx = math.floor((WinWidth) / cfg.physics.BroadphaseGridSize)
-        local maxGy = math.floor((WinHeight) / cfg.physics.BroadphaseGridSize)
+        local maxGx = math.floor((WinWidth - 1) / cfg.physics.BroadphaseGridSize)
+        local maxGy = math.floor((WinHeight -1 ) / cfg.physics.BroadphaseGridSize)
         gx = math.max(0, math.min(gx, maxGx))
         gy = math.max(0, math.min(gy, maxGy))
 
         obj.Color = {(GCCx - gx) / GCCx, 0, (GCCy - gy) / GCCy}
 
         local key = gx .. "," .. gy
-        table.insert(grid[key], obj)
+        grid[key] = obj
     end
 
     return grid

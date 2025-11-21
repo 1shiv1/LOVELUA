@@ -13,6 +13,7 @@ function Particle.new(Position, radius, vel, Elasticity, Anchored, Color)
     local self = setmetatable({}, Particle)
 
     self.Position = Position or Vector2.zero()
+    self.LastPos = self.Position
     self.radius = radius or 10
     self.Velocity = vel or Vector2.zero()
     self.Anchored = Anchored or false
