@@ -106,7 +106,6 @@ local function BroadPhase(grid)
                     a:GetGrid()
                     b:GetGrid()
                     --calulcate how much to move to make them no collide
-                    
 
                     a.Velocity = a.Velocity - n * proj * (a.Elasticity)
                     b.Velocity = b.Velocity + n * proj * (b.Elasticity)
@@ -143,7 +142,7 @@ local function AssembleGrid()
         obj.Color = {(GCCx - gx) / GCCx, 0, (GCCy - gy) / GCCy}
 
         local key = gx .. "," .. gy
-        grid[key] = obj
+        table.insert(grid[key], obj)
     end
 
     return grid
